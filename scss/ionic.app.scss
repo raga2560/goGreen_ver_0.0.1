@@ -1,0 +1,60 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+
+$item-divider-bg:                 #f5f5f5 !default;
+
+$item-divider-color:              #222 !default;
+
+$item-divider-padding:            1px 4px !default;
+
+$item-font-size:                  12px !default;
+
+$item-border-width:               1px !default;
+
+$item-padding:                    4px !default;
+
+$list-header-bg:                  transparent !default;
+
+$list-header-color:               #222 !default;
+
+$list-header-padding:             1px 4px !default;
+
+$list-header-margin-top:          4px !default;
+
+$item-button-font-size:           12px !default;
+$item-button-line-height:         14px !default;
+
+
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+

@@ -1,0 +1,68 @@
+<ion-view >
+  <ion-content class="padding">
+  	
+		
+  
+	
+<button class="button button-positive" id="a3" name="a3" type="button" ng-click="loginreset='login'">Login</button>
+<button class="button button-positive" ng-click="loginreset='logout'">Logout</button>
+<button class="button button-positive" ui-sref="app.register">Register</button>
+  
+  
+  <ion-item class="item-assertive" ng-show="error" >
+        {{error}}
+      </ion-item>
+ <ion-item class="item-assertive" ng-show="locationerror" >
+        {{locationerror}}
+      </ion-item>
+  
+  
+  <label class="item item-input item-stacked-label" ng-show="loginreset=='login'" >
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@suhr.com" ng-model="settings.email">
+	
+	
+	
+  </label>
+  
+  
+  
+  <label class="item item-input item-stacked-label" ng-show="loginreset=='login'">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Enter password" ng-model="settings.password">
+
+		  
+   </label>
+    <label class="item item-input item-stacked-label" ng-show="loginreset=='logout'">
+          
+          <button class="button button-positive" ng-click="logout()">Confirm logout</button>
+
+		  
+   </label>
+   
+	
+    <button class="button button-block button-positive" name="a1" id="a1" type="button" ng-show="loginreset=='login'" ng-click="signin()">Submit</button>	
+		
+        
+
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+		
+        
+
+		
+    
+		
+		
+	
+	
+   
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,48 @@
+<ion-view view-title="{{interactobject.firstuser}} and {{interactobject.seconduser}}">
+<ion-nav-buttons side="right">
+	  
+      
+	 
+</ion-nav-buttons>
+
+  <ion-content>
+  
+    <ion-list>
+     <ion-item >
+	  		  
+	</ion-item >	
+	<div ng-repeat="request in exchanges" >
+	<ion-item   class="item-assertive item-text-wrap" ng-show="interactobject.firstuserdata==request.senderkey"> {{request.senderusername}} ->  {{request.sendermessage}} </ion-item>
+	<ion-item   class="item-balanced item-text-wrap" ng-show="interactobject.seconduserdata==request.senderkey"> {{request.senderusername}} ->  {{request.sendermessage}} </ion-item>
+	
+	</div >	
+<ion-item >
+<div class="item item-text-wrap">
+  <input type="text" placeholder="enter  message" ng-model="dataobj.sendermessage">
+  </div>
+  <div class="item item-divider">
+    <button class="button  button-small button-positive"  ng-show="dataobj.sendermessage" ng-click="submitmessage()">
+        Submit
+      </button>
+	
+  </div>
+  
+</ion-item >
+	
+
+		 <label class="item" >
+          <button class="button button-block button-positive" type="submit" ng-click="myGoBack()">Back</button>
+        </label>
+		
+     
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar class="bar-balanced">
+    <div class="buttons">
+    </div>
+    <h1 class="title" ng-show="error"> {{error}} </h1>
+     <div class="buttons">
+    </div>
+    </ion-footer-bar> 
+	
+</ion-view>

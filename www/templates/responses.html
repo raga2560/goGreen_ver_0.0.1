@@ -1,0 +1,113 @@
+<ion-view >
+<ion-nav-buttons side="right">
+	  {{totalobjects}}, {{currentitem+1}}
+     
+	  <button class="button button-positive" ng-show="authentication"  ng-click="nextitem()">
+        Next item
+      </button>
+	  <button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+	  
+	   <button class="button button-positive" ng-show="authentication" ng-click="submit()">
+        Submit
+      </button>
+</ion-nav-buttons>
+  <ion-content >
+    <ion-list class="list-inset">
+	<ion-item ng-hide="oneobj">
+	No response received.
+	</ion-item>
+	
+     <ion-item ng-show="oneobj" >
+	  
+       
+		  
+		 
+  <div class="item  item-divider item-assertive" >
+    Item: {{oneobj.objectdesc}}
+	<button class="button button-small  button-positive"   ng-click="deletenow()">
+        Delete item
+      </button>
+  </div>
+  <div class="item item-text-wrap">
+   Details: {{oneobj.objectdetails}} 
+  </div>
+   <div class="item  item-divider item-assertive" >
+   </div>
+
+
+		  
+	</ion-item >	 
+   
+	
+		<ion-item ng-repeat="user in oneobj.responses">
+
+		         
+		
+	
+  <div class="item item-divider item-balanced item-text-wrap">
+    <div class="row"><div class="col-50"> Liked by: {{user.likinguserdata.username}} 
+   <button class="button  button-small button-positive" ng-show="oneobj.responses[$index].replied"  ng-click="saveconnection($index)">
+        Save connection
+      </button> </div>	
+	<div class="col-50"> Time: {{user.likedtime | date:'medium'}}</div>
+	
+	   </div>
+  </div>
+  <div class="item item-text-wrap">
+    <input type="text" ng-hide="oneobj.responses[$index].replied" placeholder="enter reply message"  ng-model="oneobj.responses[$index].responsemsg">
+	<label type="text" ng-show="oneobj.responses[$index].replied" > You replied-> {{oneobj.responses[$index].responsemsg}}</label>
+  </div>
+  <div class="item item-divider " ng-hide="oneobj.responses[$index].replied">
+    <button class="button  button-small button-positive"  ng-hide="oneobj.responses[$index].replied" ng-click="objreplyfun($index)">
+        Update reply message
+      </button>
+	
+  </div>
+
+  
+
+
+		</ion-item>
+		<ion-item ng-show="oneobj.responses.length == 0">
+		No replies for this item
+		
+		</ion-item>
+		
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	
+     
+    </ion-list>
+	
+  </ion-content>
+  
+  <ion-footer-bar class="bar-balanced row">
+      
+ 
+
+	  <div class="buttons col-25">
+    
+	
+  </div>
+  
+  <h1 class="item item-text-wrap col-50" ng-show="error"> {{error}} </h1>
+    
+   <div class="buttons col-50" ng-hide="error">
+  <button class="button button-positive"  ng-click="connections()">
+        Connections
+      </button>
+	   <button class="button button-small button-positive"  ng-click="refresh()">
+        Refresh
+      </button>
+  </div>
+    </ion-footer-bar> 
+	  
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Enter details to {{action}}</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeprompt()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="submit()">
+      <div class="list">
+	
+	<label class="item item-stacked-label" > Involvement in {{itemdetails.objecttype}} 	</label>
+	<label class="item item-stacked-label" > For: {{itemdetails.objecttypedesc}}. </br> Action:  {{itemdetails.objectaction}}</label>
+        <label class="item item-input item-stacked-label" >
+    
+          <input type="text" placeholder="Title" ng-model="itemdetails.objectdesc">
+        </label>
+		
+		<label class="item item-input item-stacked-label" >
+    
+	   <textarea placeholder="Description" ng-model="itemdetails.objectdetails" rows="5"></textarea>
+   
+       </label>
+	
+	
+  
+        <label class="item" >
+          <button class="button button-block button-positive" type="submit">Submit</button>
+        </label>
+		
+		
+	
+	
+	
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

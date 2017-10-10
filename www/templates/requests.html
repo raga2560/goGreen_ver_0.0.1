@@ -1,0 +1,76 @@
+<ion-view > 
+<ion-nav-buttons side="right">
+ {{totalobjects}}, {{currentPage1+1}}
+	<button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+     
+	  <button class="button button-positive"  ng-click="nextitem()">
+        Next 
+      </button>
+	 
+	  
+</ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+	<ion-item ng-show="requests.length==0">
+	No requests have been made.
+	</ion-item>
+      <ion-item ng-repeat="request in requests |startFrom:currentPage1*pageSize1 | limitTo:pageSize1" >
+	  
+  
+	<div class="card">
+  <div class="item item-divider item-balanced item-text-wrap">
+  <div class="row">
+	 <div class="col"> 
+    I liked: {{request.objectdesc}} </div>
+	<div class="col"> 
+	Time: 	{{request.likedtime | date:'medium'}}</div>
+	</div>
+  </div>
+  <div class="item item-text-wrap">
+  <div class="row">
+   <div class="col"> <H2>{{request.objectdetails}}  </H2> </div>
+  </div>
+	<p ng-show="request.responsemsg">
+	 <div class="row">
+	 <div class="col"> <a class="subdued">Got Reply: {{request.responsemsg}}</a> </div>
+	   <div class="col"> <a class="subdued">Time: {{request.responsetime | date:'medium'}} </a> </div>
+	   </div>
+    </p>
+	
+  </div>
+  <div class="item item-divider" ng-show="request.responsemsg">
+   
+	<button class="button button-small button-positive" ng-show="request.responsemsg"  ng-click="saveconnection($index)">
+        Save connection
+      </button> </br>
+	
+</div>
+</div>
+
+		
+      </ion-item>
+	  
+	  
+    </ion-list>
+  </ion-content>
+   <ion-footer-bar class="bar-balanced row">
+      
+ 
+
+	  <div class="buttons col-25">
+    
+	
+  </div>
+  <p class="item item-text-wrap col-70" ng-show="error">{{error}} </p>
+   <div class="buttons col-75" ng-hide="error">
+  <button class="button button-positive"  ng-click="connections()">
+        Connections
+      </button>
+	   <button class="button button-small button-positive"  ng-click="refresh()">
+        Refresh
+      </button>
+  </div>
+    </ion-footer-bar> 
+</ion-view>

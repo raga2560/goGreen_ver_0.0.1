@@ -1,0 +1,43 @@
+<ion-view hide-nav-bar="false"  >
+<ion-nav-buttons side="right">
+	 
+	
+	   <button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+     
+	 
+	  
+	  
+</ion-nav-buttons>
+        <ion-content >
+         <div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" placeholder="Enter item to search"  ng-model="contribsearchstr">
+  </label>
+  <button class="button button-clear">
+    Cancel
+  </button>
+</div>
+
+<ion-list>
+  <ion-item ng-repeat="item in contribtems | filter:contribsearchstr |limitTo:20 " href="#/app/listitems1/{{item.name}}">
+    
+	 <H3 > {{item.name}} </H3>
+	
+  </ion-item>
+</ion-list>
+
+        </ion-content>
+		<ion-footer-bar class="bar-balanced">
+		<div class="buttons">
+    
+  </div>
+  <h1 class="title">{{error}}</h1>
+   <div class="buttons">
+  
+  </div>
+    </ion-footer-bar>
+	
+      </ion-view>

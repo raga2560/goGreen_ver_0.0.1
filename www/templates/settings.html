@@ -1,0 +1,26 @@
+<ion-view hide-nav-bar="false" >
+
+	
+        <ion-content >
+         <ion-item class="item-assertive" ng-show="error" >
+        {{error}}
+      </ion-item>
+ <ion-item class="item-assertive" ng-show="locationerror" >
+        {{locationerror}}
+      </ion-item>
+
+<ion-list>
+<ion-item class="item item-button-right item-text-wrap">
+<H2>Current location: </H2> <span ng-show="settings.address">{{settings.address.place}}, {{settings.address.city}}, LatLang: {{settings.address.latitude}}, {{settings.address.longitude}} </span>
+<button class="button button-positive" ng-click="setlocation()">
+      Reset Location
+    </button>
+</ion-item>
+
+  
+</ion-list>
+
+        </ion-content>
+		
+	
+      </ion-view>

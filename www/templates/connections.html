@@ -1,0 +1,81 @@
+<ion-view >
+<ion-nav-buttons side="right">
+ {{totalobjects}}, {{currentPage1}}
+	<button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+      
+	  <button class="button button-positive" ng-show="authentication" ng-click="nextitem()">
+        Next 
+      </button>
+	 
+	
+	  
+</ion-nav-buttons>
+  <ion-content>
+    <ion-list class="list-inset">
+	<ion-item ng-show="records.length==0">
+	You have no connections.
+	</ion-item>
+      <ion-item ng-repeat="request in records |startFrom:currentPage1*pageSize1 | limitTo:pageSize1" >
+	  
+  
+	
+	<div class="item item-divider item-balanced item-text-wrap">
+	<div class="row">
+	 <div class="col-50 ">
+	Between {{request.firstuser}} and {{request.seconduser}}
+	</div>
+	 <div class="col-50 ">
+	<button class="button  button-small button-positive"   ng-click="interact($index)">
+       Interact
+      </button>
+	  <button class="button  button-small button-positive"   ng-click="disconnect($index)">
+       Disconnect
+      </button>
+	  </div>
+	  </div>
+	</div>
+		<div ng-repeat="item in request.itemdetails" class="item item-text-wrap">
+		<div class="row">
+	 <div class="col-25 ">
+		<h2>{{item.owneruser}} <h2>  </div>
+		 <div class="col-75 "> 
+		<p >{{item.objectdesc}}  </p>  </div>
+		 </div>
+		
+		<p>
+		<div class="row">
+	 <div class="col-25">
+      <H2>Liked by: {{item.likeduser}} </H2> </div>
+       <div class="col-75"> 
+	   <a class="subdued">Reply: {{item.responsemsg}}</a> </div>
+	   </div>
+    </p>
+		</div>
+	
+
+
+		
+      </ion-item>
+	  
+	  
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar class="bar-balanced row">
+      
+ 
+
+	  <div class="buttons col-25">
+    
+	
+  </div>
+  <p class="item item-text-wrap col-50">{{error}} </p>
+   <div class="buttons col-25">
+  
+	   <button class="button button-small button-positive"  ng-show="authentication" ng-click="refresh()">
+        Refresh
+      </button>
+  </div>
+    </ion-footer-bar> 
+</ion-view>

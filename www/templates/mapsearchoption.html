@@ -1,0 +1,34 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Select search area  </h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closelist()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+ <form ng-submit="setsearch()">
+  <div class="list">
+
+  <label class="item item-radio">
+    <input type="radio" name="group" ng-model="choice.name" value="contribution">
+    <div class="item-content">
+      Contribution
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+<label class="item item-radio">
+    <input type="radio" name="group" ng-model="choice.name" value="involvement">
+    <div class="item-content">
+      Involvement
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+  
+</div>
+
+	 <label class="item" >
+          <button class="button button-block button-positive" type="submit" >Submit</button>
+        </label>
+</form>
+  </ion-content>
+</ion-modal-view>

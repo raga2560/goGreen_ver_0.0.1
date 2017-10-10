@@ -1,0 +1,57 @@
+<ion-view hide-nav-bar="false" view-title="{{item}} -- {{typedesc1}}" >
+ <ion-nav-buttons side="right">
+	
+	
+	  
+	 <button class="button button-positive"  ng-click="maplist()">
+        Map items
+      </button>
+	  <button class="button button-positive"  ng-click="listmaplist()">
+        List Map items
+      </button>
+	   <button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+     
+	 
+	  
+	  
+</ion-nav-buttons>
+
+
+  <ion-content>
+  <ion-item  class="item-assertive"  ng-show="error">
+   {{error}} 
+  </ion-item>
+  <ion-item  class="item-assertive"  ng-show="locationerror">
+   {{locationerror}} 
+  </ion-item>
+  <ion-list>
+  
+  <ion-item ng-repeat="opt in options" >
+   
+      <button class="button " ng-hide="opt.selected" ng-click="selected($index)">{{opt.name}}</button>
+	  
+	  <div ng-show="opt.selected">
+	  <button class="button " ng-click="listobjects($index)">Listing - {{opt.name}} </button>
+	  <button class="button " ng-click="newentry($index)">Create new entry - {{opt.name}}</button>
+	  
+      </div>
+	</ion-item>
+	
+	
+  </ion-list>
+  
+   
+  </ion-content>
+  <ion-footer-bar class="bar-balanced">
+		<div class="buttons">
+    
+  </div>
+  <h1 class="title">{{error}}</h1>
+   <div class="buttons">
+  
+  </div>
+    </ion-footer-bar>
+	
+</ion-view  >

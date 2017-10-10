@@ -1,0 +1,87 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+
+<ion-view  hide-nav-bar="false"> 
+<ion-nav-buttons side="right">
+{{poslength}}, {{totalobjects}}, {{currentPage1}}
+      <button class="button button-positive"  ng-show="authentication" ng-click="nextitem()">
+        Next
+      </button>
+	  <button class="button button-positive"   ng-show="authentication"  ng-click="tickle()">
+        Tickle
+      </button>
+	  <button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+	  
+	  
+    </ion-nav-buttons>
+	  
+      <ion-content  data-tap-disabled="true" >
+	  <ion-item class="item-assertive" ng-show="locationerror" >
+        {{locationerror}}
+      </ion-item>
+	  <ion-item ng-show="positions.length==0">
+		No items to display
+	  </ion-item>
+	
+<map id="map" center="{{latitude}},{{ longitude}}" zoom=14>
+  
+  
+      <marker ng-repeat="pos in positions " position="{{pos.loc[0]}}, {{pos.loc[1]}}" on-mouseover="showInfoWindow(event, 
+	  'bar{{$index}}')" on-mouseout="hideInfoWindow(event, 'bar{{$index}}')"  on-click="myloc(event, '{{$index}}')">
+	  <info-window id="bar{{$index}}" max-width="200"  >
+    <div ng-non-bindable="">
+      <div id="siteNotice"></div>
+      <h3 id="firstHeading" > {{pos.objecttypedesc}}</h3>
+      <div id="bodyContent">
+	  {{pos.objectdesc}}
+	  <p>{{pos.objectdetails}} </p>
+	  </div>
+	  </div>
+	  </info-window>
+	  </marker>
+	  
+  
+</map>
+
+ 
+	  
+         
+      </ion-content>
+    
+  <ion-footer-bar class="bar-balanced row">
+      
+ 
+
+	  <div class="buttons col-50" ng-hide="error">
+    <button class="button button-positive "  ng-show="authentication" ng-click="searchlist()">
+        Search
+      </button>
+	   <button class="button button-positive"  ng-show="authentication"  ng-click="refresh()">
+        Refresh
+      </button>
+	
+  </div>
+  <h1 class="item item-text-wrap col-50" ng-show="error">{{error}}</h1>
+   <div class="buttons col-50" ng-hide="error">
+  <button class="button button-positive"  ng-show="authentication" ng-click="gotorequests()">
+        Requests
+      </button>
+	  
+	  <button class="button button-positive"  ng-show="authentication"  ng-click="gotoresponses()">
+        Responses
+      </button>
+	   
+	  
+  </div>
+    </ion-footer-bar> 
+	
+	
+    </ion-view>
+
+	

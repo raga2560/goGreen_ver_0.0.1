@@ -1,0 +1,58 @@
+<ion-view >
+  <ion-content class="padding">
+  <form ng-submit="doLogin()">
+      <div class="list">
+	
+        <label class="item item-input" >
+          <input type="text" placeholder="title" ng-model="advts.title">
+        </label>
+		 <label class="item item-input" >
+          <input type="text" placeholder="description" ng-model="advts.desc">
+        </label>
+		
+		
+        <label class="item" >
+          <button class="button button-block button-positive" type="submit">Register</button>
+        </label>
+		
+		
+	
+	
+	
+	
+      </div>
+    </form>
+	
+	
+  	
+		 <ion-item class="item-assertive" ng-show="error" >
+        {{error}}
+      </ion-item>
+  
+
+	
+  <label class="item" >
+          <button class="button button-block button-positive" type="submit" ng-click="myGoBack()">Back</button>
+        </label>
+  
+        <label class="item" >
+          <button class="button button-block button-positive" type="submit" ng-click="expressinterest()">Express interest</button>
+        </label>
+		
+		
+	
+	
+	
+
+		
+    
+		
+		
+	
+	
+   
+  </ion-content>
+ 
+</ion-view>
+
+

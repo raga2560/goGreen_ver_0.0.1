@@ -1,0 +1,88 @@
+<ion-view >
+<ion-nav-buttons side="right">
+	 
+	
+	   <button class="button button-positive" ng-hide="authentication" ui-sref="app.login2">
+        Login
+      </button>
+     
+	 
+	  
+	  
+</ion-nav-buttons>
+  <ion-content class="padding">
+  	
+		<ion-item class="item-assertive" ng-repeat="err in errors" >
+        {{err.msg}}
+      </ion-item>
+		
+ 
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+          <span class="input-label">Username</span>
+          <input type="text" placeholder="Enter username" ng-model="settings.username">
+  </label>
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+    <span class="input-label">Mobile no</span>
+    <input type="text" placeholder="Enter mobile no" ng-model="settings.mobileno">
+  </label>
+  
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="john@suhr.com"   ng-model="settings.email"  >
+  </label>
+  
+  
+   <!--
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+  <button class="button button-positive"  type="button" ng-click="getvalidationcode()">Get validation code</button>  
+  <span class="input-label" ng-show="settings.validationsent">Check email {{settings.email}} to get validation code</span>
+  <span class="assertive" ng-show="entervalidationcode">Enter validation code</span>
+  
+   
+   
+  
+  </label>
+  
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+    <span class="input-label">Validation code</span>
+    <input type="text" placeholder="ABC123" ng-model="settings.validationcode">
+	<span class="assertive" ng-show="validationerror">{{validationerror}}</span>
+  </label>
+  -->
+  <label class="item item-input item-stacked-label" ng-hide="settings.registered">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Enter password"   ng-model="settings.password"  >
+   </label>
+		
+		
+        <label class="item" ng-hide="settings.registered">
+          <button class="button button-block button-positive" type="submit" ng-click="signup()">Register</button>
+        </label>
+	
+		
+ 
+		
+		
+	<ion-item class="item" ng-show="settings.registered">
+	
+    <span class="input-label">Registered as </span> {{settings.username}}
+	</ion-item>
+	<ion-item class="item" ng-show="settings.registered">
+    <span class="input-label">Registered Mobile no </span> {{settings.mobileno}}
+	</ion-item>
+	<ion-item class="item" ng-show="settings.registered">
+	<span class="input-label">Registered Email id </span> {{settings.email}}
+    </ion-item>
+	
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	<div class="item item-divider item-light">
+	</div>
+	
+  </ion-content>
+</ion-view>
+

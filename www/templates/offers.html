@@ -1,0 +1,73 @@
+<ion-view view-title="Received responses">
+<ion-nav-buttons side="right">
+	  {{totalobjects}}, {{currentitem+1}}
+      <button class="button button-positive"  ng-click="refresh()">
+        Refresh
+      </button>
+	  <button class="button button-positive"  ng-click="nextitem()">
+        Next item
+      </button>
+	   <button class="button button-positive"  ng-click="connections()">
+        Connections
+      </button>
+	   <button class="button button-positive"  ng-click="submit()">
+        Submit
+      </button>
+</ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+     <ion-item >
+	  
+       
+		  
+		  <div class="card "  ng-show="oneobj">
+  <div class="item item-divider ">
+    Offer Item: {{oneobj.objectdesc}}
+	<button class="button  button-small button-positive"   ng-click="deletenow()">
+        Delete item
+      </button>
+  </div>
+  <div class="item item-text-wrap">
+   Details: {{oneobj.objectdetails}} 
+  </div>
+  
+</div>
+
+		  
+	</ion-item >	  
+		<ion-item ng-repeat="user in oneobj.responses">
+
+		         
+		
+	<div class="card">
+  <div class="item item-divider">
+    Liked by: {{user.likinguserdata.username}} , Time: <span>{{user.likedtime | date:'medium'}}</span>
+	<button class="button  button-small button-positive"   ng-click="saveconnection($index)">
+        Save connection
+      </button>
+  </div>
+  <div class="item item-text-wrap">
+    <input type="text" placeholder="enter reply message" ng-model="oneobj.responses[$index].responsemsg">
+  </div>
+  <div class="item item-divider">
+    <button class="button  button-small button-positive"  ng-hide="oneobj.responses[$index].replied1" ng-click="objreplyfun($index)">
+        Update reply message
+      </button>
+	  <button class="button  button-small button-positive"  ng-hide="oneobj.responses[$index].replied1" ng-click="doSomething()">
+        Ignore
+      </button>
+  </div>
+</div>
+
+
+		</ion-item>
+		<ion-item ng-show="oneobj.responses.length == 0">
+		No replies for this item
+		
+		</ion-item>
+		
+		
+     
+    </ion-list>
+  </ion-content>
+</ion-view>
